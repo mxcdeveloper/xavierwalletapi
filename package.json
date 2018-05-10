@@ -1,0 +1,62 @@
+{
+  "name": "@xavier/xavier-api",
+  "version": "0.28.0",
+  "description": "Xavier client-side API library",
+  "keywords": [
+    "cryptocurrency",
+    "xavier",
+    "api",
+    "seed",
+    "transactions",
+    "cryptography",
+    "signature"
+  ],
+  "author": {
+    "name": "Satendra Shakya",
+    "email": "satendra.shakya@oodlestechnologies.com",
+    "url": "https://github.com/abcd"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": "dist/xavier-api.min.js",
+  "types": "raw/src/XavierAPI.d.ts",
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "browserify": "^14.4.0",
+    "chai": "^4.1.2",
+    "karma": "^1.7.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-commonjs": "^1.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-requirejs": "^1.1.0",
+    "karma-typescript": "^3.0.7",
+    "mocha": "^4.0.1",
+    "mock-require": "^2.0.2",
+    "requirejs": "^2.3.5",
+    "typescript": "^2.5.3",
+    "uglify-js": "^3.1.4"
+  },
+  "dependencies": {
+    "bignumber.js": "4.1.0",
+    "crypto-js": "3.1.9-1",
+    "node-fetch": "1.7.3",
+    "parse-json-bignumber": "0.0.2",
+    "ts-api-validator": "2.1.2",
+    "ts-utils": "6.0.1"
+  },
+  "scripts": {
+    "_build-partial": "node_modules/.bin/browserify raw/src/XavierAPI.js --im -s XavierAPI -u parse-json-bignumber -u bignumber.js -u crypto -u node-fetch -u ts-utils -u ts-api-validator > ./dist/xavier-api.partial.js",
+    "_build-full": "node_modules/.bin/browserify raw/src/XavierAPI.js --im -s XavierAPI -u crypto -u node-fetch > ./dist/xavier-api.js",
+    "build": "npm run compile && mkdir -p dist && npm run _build-partial && npm run _build-full && npm run uglifyjs",
+    "compile": "mkdir -p raw && ./node_modules/.bin/tsc -p ./tsconfig.json --declaration --outDir raw",
+    "uglifyjs": "node_modules/.bin/uglifyjs ./dist/xavier-api.js -o ./dist/xavier-api.min.js && node_modules/.bin/uglifyjs ./dist/xavier-api.partial.js -o ./dist/xavier-api.partial.min.js",
+    "prepublishOnly": "npm run build && npm run test && npm run test-browser",
+    "test": "npm run build && ./node_modules/.bin/tsc -p ./test/tsconfig.json && ./node_modules/.bin/mocha $(find ./tmp-node/test -name '*.spec.js')",
+    "test-browser": "npm run build && ./node_modules/.bin/tsc -p ./test/tsconfig.browser.json && ./node_modules/.bin/karma start karma.conf.js"
+  }
+}
