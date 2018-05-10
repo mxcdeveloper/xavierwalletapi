@@ -1,6 +1,6 @@
 {
   "name": "@xavier/xavier-api",
-  "version": "0.28.0",
+  "version": "1.0.0",
   "description": "Xavier client-side API library",
   "keywords": [
     "cryptocurrency",
@@ -14,12 +14,12 @@
   "author": {
     "name": "Satendra Shakya",
     "email": "satendra.shakya@oodlestechnologies.com",
-    "url": "https://github.com/abcd"
+    "url": "https://oodlestechnologies.com"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/mxcdeveloper/xavierwalletapi.git"
   },
   "main": "dist/xavier-api.min.js",
   "types": "raw/src/XavierAPI.d.ts",
