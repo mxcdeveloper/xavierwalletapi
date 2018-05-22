@@ -1,16 +1,16 @@
 import { IAssetObject, IXavierBasicConfig, IXavierConfig } from '../interfaces';
 
 
-export const XAVIER = 'XAVIER';
+export const XAVIER = 'MXC';
 export const XAVIER_PROPS: IAssetObject = {
     id: XAVIER,
-    name: 'Xavier',
+    name: 'Mxc',
     precision: 8,
     description: ''
 };
 
-export const MAINNET_BYTE: number = 'W'.charCodeAt(0);
-export const TESTNET_BYTE: number = 'T'.charCodeAt(0);
+export const MAINNET_BYTE: number = 'X'.charCodeAt(0);
+export const TESTNET_BYTE: number = 'X'.charCodeAt(0);
 
 export const INITIAL_NONCE = 0;
 
@@ -63,15 +63,15 @@ export const DEFAULT_BASIC_CONFIG: IXavierBasicConfig = {
 export const DEFAULT_MAINNET_CONFIG: IXavierConfig = {
     ...DEFAULT_BASIC_CONFIG,
     networkByte: MAINNET_BYTE,
-    nodeAddress: 'https://nodes.xavierplatform.com',
-    matcherAddress: 'https://matcher.xavierplatform.com'
+    nodeAddress: 'http://180.151.85.197:9898',
+    matcherAddress: 'http://180.151.85.197:9899/matcher'
 };
 
 export const DEFAULT_TESTNET_CONFIG: IXavierConfig = {
     ...DEFAULT_BASIC_CONFIG,
     networkByte: TESTNET_BYTE,
-    nodeAddress: 'https://testnet1.xaviernodes.com',
-    matcherAddress: 'https://testnet1.xaviernodes.com/matcher'
+    nodeAddress: 'http://180.151.85.197:9898',
+    matcherAddress: 'http://180.151.85.197:9899/matcher'
 };
 
 export const XAVIER_V1_ISSUE_TX = {
@@ -81,7 +81,7 @@ export const XAVIER_V1_ISSUE_TX = {
     fee: 0,
     height: 0,
     id: XAVIER,
-    name: 'Xavier',
+    name: 'Mxc',
     quantity: 100000000 * Math.pow(10, 8),
     reissuable: false,
     sender: XAVIER,
