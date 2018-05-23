@@ -4,7 +4,7 @@ import { IAssetObject, IXavierBasicConfig, IXavierConfig } from '../interfaces';
 export const XAVIER = 'MXC';
 export const XAVIER_PROPS: IAssetObject = {
     id: XAVIER,
-    name: 'Mxc',
+    name: 'MXC',
     precision: 8,
     description: ''
 };
